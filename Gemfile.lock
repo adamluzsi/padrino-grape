@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    padrino-grape (1.0.0.rc)
+    padrino-grape (1.0.0)
       grape
       padrino
 
