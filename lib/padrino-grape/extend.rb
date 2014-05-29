@@ -25,12 +25,23 @@ module PadrinoGrape
       return if @_configured
       self.require_dependencies
       @_configured = true
-      @_configured
+      return @_configured
     end
 
-    def reload!       ;    ; end
-    def app_file      ; "" ; end
-    def public_folder ; "" ; end
+    def reload!
+    end
+
+    def app_file
+      ""
+    end
+
+    def app_name
+      self.to_s
+    end
+
+    def public_folder
+      ""
+    end
 
   end
 
