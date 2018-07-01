@@ -17,7 +17,7 @@ module PadrinoGrape
     end
 
     def require_dependencies
-      ::Padrino.set_load_paths(*load_paths)
+      $LOAD_PATH.concat(load_paths)
       ::Padrino.require_dependencies(dependencies, :force => true)
     end
 
