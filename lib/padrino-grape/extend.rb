@@ -3,7 +3,8 @@
 module PadrinoGrape
 
   module Extend
-
+    include Grape::DSL::Settings
+    
     def root
       @_root ||= File.expand_path('..', __FILE__)
     end
@@ -41,6 +42,10 @@ module PadrinoGrape
 
     def public_folder
       ""
+    end
+
+    def set(key, value)
+      global_setting(key, value)
     end
 
   end
