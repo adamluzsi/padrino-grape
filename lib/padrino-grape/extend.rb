@@ -46,13 +46,32 @@ module PadrinoGrape
   end
 
   def self.extended base
+    base.superclass.parent::Route.__send__ :include, ::PadrinoGrape::RouteExtend
     base.__send__ :extend, ::PadrinoGrape::Extend
     base.__send__ :setup_application!
   end
 
   def self.included base
+    base.superclass.parent::Route.__send__ :include, ::PadrinoGrape::RouteExtend
     base.__send__ :extend, ::PadrinoGrape::Extend
     base.__send__ :setup_application!
   end
 
+  module RouteExtend
+    def name
+      @options[:path]
+    end
+
+    def controller
+      @options[:namespace]
+    end
+
+    def request_methods
+      [@options[:method]]
+    end
+
+    def original_path
+      @options[:path]
+    end
+  end
 end
